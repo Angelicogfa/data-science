@@ -13,6 +13,6 @@ quartis = np.quantile(jogadores, [0, 0.25, 0.50, 0.75, 1])
 quartis
 
 # Desvio padrão
-np.std(jogadores, ddof = 1)
+np.std(jogadores, ddof=1)
 
 stats.describe(jogadores)
