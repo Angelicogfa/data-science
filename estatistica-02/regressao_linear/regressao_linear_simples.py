@@ -1,11 +1,12 @@
 # Instale o pacote no terminal do anaconda
 # conda install yeallowbrick
 
+#%%
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-from yellowbrick.regressor import RegressionScoreVisualizer
+from yellowbrick.regressor import ResidualsPlot
 
 # Import da base de dados
 base = pd.read_csv("dados/cars.csv")
@@ -37,7 +38,7 @@ X = X.reshape(-1, 1)
 # Preenche o modelo com os valores de X e Y
 modelo.fit(X, Y)
 
-# Intercecção
+# Intercecção entre x e y (inicio da linha de regressão)
 modelo.intercept_
 
 # Coeficiente 
@@ -60,5 +61,8 @@ modelo.predict(np.array(distancia).reshape(-1,1))
 
 # Residuais - Distancia entre os pontos com base na linha de regressão
 modelo._residues
-
-
+#%%
+# Gera um novo grafico com base no modelo para melhor visualização dos residuais
+visualizador = ResidualsPlot(modelo)
+visualizador.fit(X, Y)
+visualizador.poof()
