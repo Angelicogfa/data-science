@@ -1,11 +1,11 @@
 # Instale o pacote no terminal do anaconda
-# pip install yeallowbrick
+# conda install yeallowbrick
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
-from yeallowbrick.regressor import ResidualPlot
+from yellowbrick.regressor import RegressionScoreVisualizer
 
 # Import da base de dados
 base = pd.read_csv("dados/cars.csv")
@@ -49,6 +49,9 @@ plt.scatter(X, Y)
 # plot - com base nos pontos, gera a linha de melhor ajuste
 plt.plot(X, modelo.predict(X), color = 'red')
 
+# Obs - Rode os dois comandos acima simuntaneamente para montar o grafico
+# de disperção com a linha de melhor ajuste
+
 # Distancia de parada 22 pés(previsão de qual velocidade estava)
 distancia = 22
 modelo.intercept_ + modelo.coef_ * distancia
@@ -57,4 +60,5 @@ modelo.predict(np.array(distancia).reshape(-1,1))
 
 # Residuais - Distancia entre os pontos com base na linha de regressão
 modelo._residues
+
 

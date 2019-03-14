@@ -11,7 +11,7 @@ t.cdf(1.5, 8)
 # Qual a probabilidade do salario ser maior que  80 ?
 t.sf(1.5, 8) * 100
 # ou 
-1- t.cdf(1.5, 8) * 100
+1- t.cdf(1.5, 8)
 
 
 
