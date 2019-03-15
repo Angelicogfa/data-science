@@ -1,3 +1,4 @@
+#%%
 from scipy.stats import norm
 
 import numpy as np

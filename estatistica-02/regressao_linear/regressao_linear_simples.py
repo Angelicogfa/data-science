@@ -1,7 +1,7 @@
 # Instale o pacote no terminal do anaconda
 # conda install yeallowbrick
 
-#%%
+#%% Importação das dependencias e execução dos codigos
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -44,7 +44,8 @@ modelo.intercept_
 # Coeficiente 
 modelo.coef_
 
-# Regra o grafico
+#%% 
+# Gera o grafico
 # scatter - gera o grafico com os pontos 
 plt.scatter(X, Y)
 # plot - com base nos pontos, gera a linha de melhor ajuste

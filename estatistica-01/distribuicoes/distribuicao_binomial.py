@@ -1,3 +1,4 @@
+#%%
 from scipy.stats import binom
 
 # Jogar uma moeda 5 vezes, qual a probabilidade de dar 3 caras
