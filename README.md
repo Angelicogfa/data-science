@@ -13,3 +13,10 @@ A declarativa abaixo, executa os códigos em celulas
 # Seu código abaixo
 teste = 'teste 1 2 3'
 ```
+
+Para executar os scripts, navegue até o diretorio do arquivo
+e rode o seguinte comando, como exemplo:
+
+```
+python amostragem-aleatoria.py
+```
