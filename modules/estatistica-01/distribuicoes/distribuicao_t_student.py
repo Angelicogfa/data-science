@@ -6,13 +6,9 @@ import numpy as np
 
 # Qual a probabilidade de selecionar um cientista de dados e salario
 # ser menor que 80 por hora
-t.cdf(1.5, 8)
+print(t.cdf(1.5, 8))
 
 # Qual a probabilidade do salario ser maior que  80 ?
-t.sf(1.5, 8) * 100
+print(t.sf(1.5, 8) * 100)
 # ou 
-1- t.cdf(1.5, 8)
-
-
-
-
+print(1- t.cdf(1.5, 8))

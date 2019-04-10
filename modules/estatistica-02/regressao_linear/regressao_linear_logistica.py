@@ -5,9 +5,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 
+import os
+import os.path
+
+path = os.path.abspath(os.path.dirname(__file__))
+
 #%%
 # Importação do dataset
-base = pd.read_csv("dados/Eleicao.csv", sep = ";")
+base = pd.read_csv(os.path.join(path, "../../../dados/Eleicao.csv"), sep = ";")
+print(base)
 
 #%%
 # Geração de grafico
@@ -30,10 +36,10 @@ y
 modelo = LogisticRegression()
 modelo.fit(x, y)
 
-modelo.coef_
-modelo.intercept_
+print(modelo.coef_)
+print(modelo.intercept_)
 
-plt.scatter(x, y)
+print(plt.scatter(x, y))
 
 #%%
 # Geração de numeros aleatorios, entre 10 e 300. 100 registros
@@ -51,14 +57,14 @@ plt.plot(x_teste, r, color = 'red')
 
 #%%
 # Efetuando novas previsoes
-base_previsoes = pd.read_csv("dados/NovosCandidatos.csv", sep = ";")
+base_previsoes = pd.read_csv(os.path.join(path, "../../../dados/NovosCandidatos.csv"), sep = ";")
 
 despesas = base_previsoes.iloc[:, 1].values
 despesas = despesas.reshape(-1, 1)
 previoes_teste = modelo.predict(despesas)
-previoes_teste
+print(previoes_teste)
 
 #%% 
 # Mesclando a base com os dados de previsoes com o resultado
 base_previsoes = np.column_stack([base_previsoes, previoes_teste])
-base_previsoes
+print(base_previsoes)

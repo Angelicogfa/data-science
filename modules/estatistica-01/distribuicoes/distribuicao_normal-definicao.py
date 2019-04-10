@@ -1,7 +1,6 @@
-#%%
-from scipy.stats import norm
-
 import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
 
 itens = [7.57,  6.72,  5.59,  9.56,  4.79,  4.84,  5.87,  10.23,  9.53,  6.99,
          9.51,  9.21,  5.78,  6.72,  8.96,  7.32,  7.64,  8.53,   5.9,   7.93,
@@ -14,19 +13,24 @@ itens = [7.57,  6.72,  5.59,  9.56,  4.79,  4.84,  5.87,  10.23,  9.53,  6.99,
          10.14, 9.66,  10.67, 8.17,  8.86,  8.40,  5.15,  6.98,   8.19,  8.72,
          8.76,  8.02,  8.93,  8.54,  3.26,  10.06, 8.18,  2.43,   9.17,  12.00]
 
-media = np.median(itens)
-dp = np.std(itens, ddof=1)
+print(itens)
 
-# Conjunto de objetos em uma cesta, a média é 8 e o desvio padrão é 2
+print(np.median(itens))
+print(np.std(itens, ddof=1))
 
-# qual é a probabilidade de tirar um objeto que peso é menor que 6 quilos 
-norm.cdf(6, media, dp) * 100
+stats.probplot(itens, plot= plt)
+plt.show()
 
-# qual é a probabilidade de tirar um objeto que peso é maior que 6 quilos 
-norm.sf(6, media, dp) * 100
+# Funcao distribuição normal
+# Z = (x - u) / a
+# x = valor a ser obtido
+# u = média
+# a = desvio padrão
+# Z = valor para pesquisa de tabela
+# à probabilidade é acomulativa da esquerda para à direita
 
-# qual é a probabilidade de tirar um objeto que peso é menor que 6 ou maior que 10 ?
-(norm.cdf(6, media, dp) + norm.sf(10, media, dp)) * 100
-
-# Qual a probabilidade de tirar um objeto que o peso é menor que 10 e maior que 8 ?
-(norm.cdf(10, media, dp) - norm.cdf(8, media, dp)) * 100
+# Validar se a distribuição é normal:
+# à media deve ser o centro de um histograma
+# Deve ser simetrico entre os lados de cada eixo do grafico
+# Deve encontrar a grande maioria dos dados em no máximo 3 destivos padrões da média
+# Pode ser utilizado um driagrama de probabilidade normal

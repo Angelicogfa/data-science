@@ -8,8 +8,13 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from yellowbrick.regressor import ResidualsPlot
 
+import os
+import os.path
+
+path = os.path.abspath(os.path.dirname(__file__))
+
 # Import da base de dados
-base = pd.read_csv("dados/cars.csv")
+base = pd.read_csv(os.path.join(path, "../../../dados/cars.csv"))
 
 # Remoção da primeira coluna (nome da coluna) - axis (indica que é coluna)
 base = base.drop(["Unnamed: 0"], axis = 1)
@@ -19,15 +24,15 @@ base = base.drop(["Unnamed: 0"], axis = 1)
 # 1 indica a primeira coluna
 # Obtem todos os registros da coluna 1. values = retorna como array
 X = base.iloc[:, 1].values
-X
+print(X)
 # Variavel dependente
 Y = base.iloc[:, 0].values
-Y
+print(Y)
 
 # Obtem a correção entre os valores a fim de avaliar 
 # se os dados podem ser aplicados à um modelo de regressão linear
 correlacao = np.corrcoef(X, Y)
-correlacao
+print(correlacao)
 
 # Cria uma instancia de regressao linear
 modelo = LinearRegression()
@@ -39,10 +44,10 @@ X = X.reshape(-1, 1)
 modelo.fit(X, Y)
 
 # Intercecção entre x e y (inicio da linha de regressão)
-modelo.intercept_
+print(modelo.intercept_)
 
 # Coeficiente 
-modelo.coef_
+print(modelo.coef_)
 
 #%% 
 # Gera o grafico
@@ -61,7 +66,7 @@ modelo.intercept_ + modelo.coef_ * distancia
 modelo.predict(np.array(distancia).reshape(-1,1))
 
 # Residuais - Distancia entre os pontos com base na linha de regressão
-modelo._residues
+print(modelo._residues)
 #%%
 # Gera um novo grafico com base no modelo para melhor visualização dos residuais
 visualizador = ResidualsPlot(modelo)
