@@ -8,8 +8,8 @@ from yellowbrick.classifier import ConfusionMatrix
 import os
 
 # Url do diretorio
-path = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(path, '../../dados/Credit.csv')
+basepath = os.path.abspath(os.path.dirname(__file__))
+path = os.path.join(basepath, '../../dados/Credit.csv')
 
 # Carregando dados
 credito = pd.read_csv(path)
@@ -50,7 +50,32 @@ confusao = confusion_matrix(y_teste, previsoes)
 taxa_acerto = accuracy_score(y_teste, previsoes)
 taxa_erro = 1 - taxa_acerto
 
+print("taxa de acerto {acerto} - taxa de erro: {erro}".format(acerto=round(taxa_acerto,2), erro=round(taxa_erro, 2)))
+
+# Exibição do grafico de matriz de confusão
 v = ConfusionMatrix(GaussianNB())
 v.fit(X_treinamento, y_treinamento)
+v.score(X_teste, y_teste)
+v.poof()
 
+# Validar um novo usuário
+path = os.path.join(basepath, '../../dados/NovoCredit.csv')
+novo_credito = pd.read_csv(path)
+novo_credito = novo_credito.iloc[:,0:20].values
 
+novo_credito[:,0] = labelencoder.fit_transform(novo_credito[:,0])
+novo_credito[:,2] = labelencoder.fit_transform(novo_credito[:,2])
+novo_credito[:,3] = labelencoder.fit_transform(novo_credito[:,3])
+novo_credito[:,5] = labelencoder.fit_transform(novo_credito[:,5])
+novo_credito[:,6] = labelencoder.fit_transform(novo_credito[:,6])
+novo_credito[:,8] = labelencoder.fit_transform(novo_credito[:,8])
+novo_credito[:,9] = labelencoder.fit_transform(novo_credito[:,9])
+novo_credito[:,11] = labelencoder.fit_transform(novo_credito[:,11])
+novo_credito[:,13] = labelencoder.fit_transform(novo_credito[:,13])
+novo_credito[:,14] = labelencoder.fit_transform(novo_credito[:,14])
+novo_credito[:,16] = labelencoder.fit_transform(novo_credito[:,16])
+novo_credito[:,18] = labelencoder.fit_transform(novo_credito[:,18])
+novo_credito[:,19] = labelencoder.fit_transform(novo_credito[:,19])
+
+result = naive_bayes.predict(novo_credito)
+print('Novo Cliente: {status}'.format(status=result[0]))
