@@ -8,7 +8,7 @@ from sklearn.metrics import confusion_matrix
 from keras.datasets import mnist
 
 # Carregamento dos dados
-(X_treinamento, y_treinamento), (X_teste, y_teste) = mnist.load_data();
+(X_treinamento, y_treinamento), (X_teste, y_teste) = mnist.load_data()
 plt.imshow(X_treinamento[150], cmap='gray')
 plt.title(y_treinamento[150])
 
