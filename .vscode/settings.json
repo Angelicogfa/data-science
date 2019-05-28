@@ -1,5 +1,5 @@
 {
-    "python.dataScience.jupyterServerURI": "http://localhost:8888/?token=54042c16bf5fe23dfe7f86f0155b0d1e2954865e6bd964fb",
+    "python.dataScience.jupyterServerURI": "local",
     "python.linting.pylintEnabled": true,
-    "python.pythonPath": "C:\\Users\\guilherme.angelico\\AppData\\Local\\Continuum\\anaconda3\\python.exe"
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe"
 }

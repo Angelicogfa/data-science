@@ -3,10 +3,10 @@ from sklearn.model_selection import train_test_split
 import os
 import os.path
 
-path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.abspath('.')
 
 # importa o pacote
-iris = pd.read_csv(os.path.join(path, '../../../dados/iris.csv'))
+iris = pd.read_csv(os.path.join(path, 'dados\\iris.csv'))
 print(iris)
 
 # obtem a quantidade de itens para a propriedade class

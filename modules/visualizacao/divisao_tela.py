@@ -4,8 +4,8 @@ from os import path
 import pandas as pd
 import matplotlib.pyplot as plt
 
-basepath = path.abspath(path.dirname(__file__))
-path = path.join(basepath, '../../dados/trees.csv')
+basepath = path.abspath('.')
+path = path.join(basepath, 'dados\\trees.csv')
 base = pd.read_csv(path)
 
 plt.figure(1)

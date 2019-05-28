@@ -7,8 +7,8 @@ from scipy import stats
 import os
 
 # Url do diretorio
-basepath = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(basepath, '../../dados/Credit.csv')
+basepath = os.path.abspath('.')
+path = os.path.join(basepath, 'dados\\Credit.csv')
 
 # Carregamento do modelo
 iris = datasets.load_iris()

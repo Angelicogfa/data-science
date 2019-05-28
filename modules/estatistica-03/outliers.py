@@ -5,9 +5,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pyod.models.knn import KNN
 
-path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.abspath('.')
 
-iris = pd.read_csv(os.path.join(path, '../../dados/iris.csv'))
+iris = pd.read_csv(os.path.join(path, 'dados\\iris.csv'))
 print(iris)
 
 plt.boxplot(iris.iloc[:, 1], showfliers=True)

@@ -7,8 +7,8 @@ from sklearn.ensemble import RandomForestClassifier
 import os
 
 # Url do diretorio
-basepath = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(basepath, '../../dados/Credit.csv')
+basepath = os.path.abspath('.')
+path = os.path.join(basepath, 'dados\\Credit.csv')
 
 # Carregando dados
 credito = pd.read_csv(path)

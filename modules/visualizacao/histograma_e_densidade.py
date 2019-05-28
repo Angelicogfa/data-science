@@ -3,12 +3,12 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-basepath = path.abspath(path.dirname(__file__))
-local = path.join(basepath, '../../dados/trees.csv')
+basepath = path.abspath('.')
+local = path.join(basepath, 'dados\\trees.csv')
 base = pd.read_csv(local)
 
 sns.distplot(base.Volume, bins=10, axlabel='Volume').set_title('Arvores')
-local = path.join(basepath, '../../dados/chicken.csv')
+local = path.join(basepath, 'dados\\chicken.csv')
 base2 = pd.read_csv(local)
 
 agrupado = base2.groupby(['feed'])['weight'].sum()

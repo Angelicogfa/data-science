@@ -8,11 +8,11 @@ from sklearn.linear_model import LogisticRegression
 import os
 import os.path
 
-path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.abspath('.')
 
 #%%
 # Importação do dataset
-base = pd.read_csv(os.path.join(path, "../../../dados/Eleicao.csv"), sep = ";")
+base = pd.read_csv(os.path.join(path, "dados\\Eleicao.csv"), sep = ";")
 print(base)
 
 #%%
@@ -57,7 +57,7 @@ plt.plot(x_teste, r, color = 'red')
 
 #%%
 # Efetuando novas previsoes
-base_previsoes = pd.read_csv(os.path.join(path, "../../../dados/NovosCandidatos.csv"), sep = ";")
+base_previsoes = pd.read_csv(os.path.join(path, "dados\\NovosCandidatos.csv"), sep = ";")
 
 despesas = base_previsoes.iloc[:, 1].values
 despesas = despesas.reshape(-1, 1)

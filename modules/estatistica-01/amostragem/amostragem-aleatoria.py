@@ -4,10 +4,10 @@ import numpy as np
 import os
 import os.path
 
-path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.abspath('.')
 
 # Lê o conteudo do arquivo csv
-base = pd.read_csv(os.path.join(path, '../../../dados/iris.csv'))
+base = pd.read_csv(os.path.join(path, 'dados\\iris.csv'))
 print(base)
 
 # Obtem a quantidade de linhas e colunas

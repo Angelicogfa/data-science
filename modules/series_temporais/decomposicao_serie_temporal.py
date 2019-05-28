@@ -1,16 +1,16 @@
 #%%
 # Importação
-import pandas as pd
-import numpy as np
-import matplotlib.pylab as plt
-from datetime import datetime
 import os
+import numpy as np
+import pandas as pd
+from datetime import datetime
+import matplotlib.pylab as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 #%%
 # Carregamento de arquivos
-path = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(path, '../../dados/AirPassengers.csv')
+path = os.path.abspath('.')
+path = os.path.join(path, 'dados\\AirPassengers.csv')
 
 dados = pd.read_csv(path, parse_dates = ['Month'],
                     index_col = 'Month',

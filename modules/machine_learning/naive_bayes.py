@@ -8,8 +8,8 @@ from yellowbrick.classifier import ConfusionMatrix
 import os
 
 # Url do diretorio
-basepath = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(basepath, '../../dados/Credit.csv')
+basepath = os.path.abspath('.')
+path = os.path.join(basepath, 'dados\\Credit.csv')
 
 # Carregando dados
 credito = pd.read_csv(path)
@@ -59,7 +59,7 @@ v.score(X_teste, y_teste)
 v.poof()
 
 # Validar um novo usuário
-path = os.path.join(basepath, '../../dados/NovoCredit.csv')
+path = os.path.join(basepath, 'dados\\NovoCredit.csv')
 novo_credito = pd.read_csv(path)
 novo_credito = novo_credito.iloc[:,0:20].values
 

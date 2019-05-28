@@ -7,9 +7,9 @@ import statsmodels.api as sm
 from statsmodels.formula.api import ols
 from statsmodels.stats.multicomp import MultiComparison
 
-my_path = os.path.abspath(os.path.dirname(__file__))
+my_path = os.path.abspath('.')
 
-path = os.path.join(my_path, '../../dados/anova.csv')
+path = os.path.join(my_path, 'dados\\anova.csv')
 tratamento = pd.read_csv(path, sep=';')
 print(tratamento)
 

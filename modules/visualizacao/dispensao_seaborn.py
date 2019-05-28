@@ -3,8 +3,8 @@ import pandas as pd
 import seaborn as srn
 import matplotlib.pyplot as plt
 
-basepath = path.abspath(path.dirname(__file__))
-local = path.join(basepath, '../../dados/co2.csv')
+basepath = path.abspath('.')
+local = path.join(basepath, 'dados\\co2.csv')
 base = pd.read_csv(local)
 
 
@@ -33,7 +33,7 @@ plt.subplot(1, 2, 2)
 srn.scatterplot(nh.conc, nh.uptake).set_title('Nonchilled')
 plt.tight_layout()
 
-local = path.join(basepath, '../../dados/esoph.csv')
+local = path.join(basepath, 'dados\\esoph.csv')
 base2 = pd.read_csv(local)
 
 srn.catplot(x = 'alcgp', y = 'ncontrols', data = base2, jitter = False)

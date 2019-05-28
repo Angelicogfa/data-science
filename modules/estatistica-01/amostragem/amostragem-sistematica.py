@@ -5,7 +5,7 @@ from math import ceil
 import os
 import os.path
 
-path = os.path.abspath(os.path.dirname(__file__))
+path = os.path.abspath('.')
 
 
 # define um tamanho para a população
@@ -33,7 +33,7 @@ for i in range(amostra):
 sorteado
 
 # Obtem a base iris
-base = pd.read_csv(os.path.join(path, "../../../dados/iris.csv"))
+base = pd.read_csv(os.path.join(path, "dados\\iris.csv"))
 
 # Carrega os itens com base nos indices
 base_final = base.loc[sorteado]

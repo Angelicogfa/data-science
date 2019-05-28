@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 from os import path
 import string
 
-diretorio = path.abspath(path.dirname(__file__))
-diretorio = path.join(diretorio, "Arquivos")
+diretorio = path.abspath('.')
+diretorio = path.join(diretorio, "dados\\Arquivos")
 
 corpus = PlaintextCorpusReader(diretorio, '.*')
 

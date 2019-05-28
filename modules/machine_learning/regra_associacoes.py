@@ -1,11 +1,12 @@
+!pip install apyori
 # Imports
 import pandas as pd
 from apyori import apriori
 import os
 
 # Url do diretorio
-basepath = os.path.abspath(os.path.dirname(__file__))
-path = os.path.join(basepath, '../../dados/transacoes.txt')
+basepath = os.path.abspath('.')
+path = os.path.join(basepath, 'dados\\transacoes.txt')
 
 dados = pd.read_csv(path, header=None)
 
@@ -21,3 +22,5 @@ resultados_3 = []
 
 for j in range(0,7):
     resultados_3.append([list (x) for x in resultados_2[j][2]])
+
+print(resultados_3)
