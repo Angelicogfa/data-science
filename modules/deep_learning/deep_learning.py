@@ -56,13 +56,13 @@ historico.history.keys()
 plt.plot(historico.history['val_loss'])
 plt.plot(historico.history['val_acc'])
 
-# Gera a matriz de confusão
+#%% Gera a matriz de confusão
 previsoes = modelo.predict(X_teste)
 y_teste_matriz = [np.argmax(t) for t in y_teste]
 y_previsoes_matriz = [np.argmax(t) for t in previsoes]
 confusao = confusion_matrix(y_teste_matriz, y_previsoes_matriz)
 
-# Preve um novo registro
+#%% Preve um novo registro
 # Registro imagem 0
 y_treinamento[150]
 novo = X_treinamento[150]
