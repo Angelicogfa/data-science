@@ -1,6 +1,6 @@
 # data-science
 
-Projeto de estudo de datascience com Python
+Projeto de estudo de datascience/ia com Python
 
 ## Instalar python 3 com anaconda
 
