@@ -21,3 +21,4 @@ detector.fit(sepal_width)
 
 previsoes = detector.labels_
 print(previsoes)
+plt.plot(detector.labels_)
