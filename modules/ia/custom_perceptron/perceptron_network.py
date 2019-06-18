@@ -1,37 +1,7 @@
 import numpy as np
-from math import exp
+from modules.ia.custom_perceptron.perceptron import Perceptron
 
-class Perceptron:
-    def __init__(self, inputs: int):
-        self.__inputs = inputs
-        self.bias: float = np.random.rand()
-        self.pesos = np.random.rand(self.__inputs)
-
-    def train(self, data: np.ndarray) -> int:
-        if (len(data) == 0):
-            raise IndexError('Não existem dados para treinamento')
-        if data.shape[0] != self.__inputs:
-            raise IndexError('Quantidade de inputs incorretos')
-        return self.__train_model(data)
-
-    def __train_model(self, data: np.ndarray) -> int:
-        result = np.sum(np.dot(data, self.pesos)) + self.bias
-        return self.__action_function(result)        
-
-    def __action_function(self, value) -> int:
-        # Função de etapa binaria
-        return 1 if value >= 1 else 0
-        # sigmoide
-        # return 1 / (1 + exp(-value))
-        # tah
-        # return 2 / (1 + exp(-2 * value)) - 1
-        # ReLu
-        # return value if value > 0 else 0
-        # softmax
-        # e = np.exp(value - np.max(value))
-        # return e / e.sum()
-
-class NetworkPerceptron:
+class PerceptronNetwork:
     def __init__(self):
         self.__error = 0.0
         self.__size_data = 0
@@ -83,21 +53,3 @@ class NetworkPerceptron:
             results.append(self.__perceptron.train(data_model))
         
         return results
-
-
-rede = NetworkPerceptron()
-datas = np.array([[-5.4, 6.1],[-5.9, 3.7],[-2.8, 2.9],[3.1, 7.7],[5.1, 6.3],[5.2, 4.4]])
-labels = np.array([1,1,1,0,0,0])
-labels.shape
-
-rede.train(datas, labels, 50)
-teste = np.array([2.2,5.4])
-len(teste.shape)
-rede.predict(teste)
-
-teste2 = np.array([[-5.4, 6.1], [5.2,4.4]])
-len(teste2.shape)
-rede.predict(teste2)
-
-
-
