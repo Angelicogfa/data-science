@@ -1,0 +1,35 @@
+version: "3.1"
+
+networks: 
+  database:
+
+services:
+  db:
+    container_name: mysql
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: exemplo
+    ports:
+      - 3306:3306
+    volumes:
+      - ./scripts_database:/docker-entrypoint-initdb.d/:ro
+    networks: 
+      - database
+
+  app:
+    container_name: app
+    build:
+      context: ./app
+    environment:
+      MYSQL_DATABASE_USER: root
+      MYSQL_DATABASE_PASSWORD: exemplo
+      MYSQL_DATABASE_DB: appdb
+      MYSQL_DATABASE_HOST: db
+    ports: 
+      - 80:5000
+    networks: 
+      - database
+    depends_on: 
+      - db
+    links:
+      - db
