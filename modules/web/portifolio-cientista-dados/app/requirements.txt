@@ -1,3 +1,4 @@
 Flask==1.0.2
-flask_mysqldb==0.2.0
+Flask-MySQL==1.4.0
 Werkzeug==0.15.2
+Flask-Assets==0.12
