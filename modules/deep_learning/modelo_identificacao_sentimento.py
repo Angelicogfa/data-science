@@ -217,3 +217,6 @@ print(valid_error_list)
 if __name__ == "__main__":
     tf.app.run()
     print("Treinanento concluído")
+
+
+#%%
