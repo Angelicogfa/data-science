@@ -1,21 +1,21 @@
 from os import getenv, path
 from flask import Flask, render_template, request, json, request
-from flask_assets import Environment, Bundle
-from werkzeug import generate_password_hash, check_password_hash
+from werkzeug.security import generate_password_hash
 from flaskext.mysql import MySQL
 
 mysql = MySQL()
-
-# static = path.join(path.abspath('.'), 'modules\\web\\portifolio-cientista-dados\\app\\static')
-
 app = Flask(__name__)
+
+print(getenv('MYSQL_DATABASE_USER', ''))
+print(getenv('MYSQL_DATABASE_PASSWORD', ''))
+print(getenv('MYSQL_DATABASE_DB', ''))
+print(getenv('MYSQL_DATABASE_HOST', ''))
 
 app.config['MYSQL_DATABASE_USER'] = getenv('MYSQL_DATABASE_USER', '')
 app.config['MYSQL_DATABASE_PASSWORD'] = getenv('MYSQL_DATABASE_PASSWORD', '')
 app.config['MYSQL_DATABASE_DB'] = getenv('MYSQL_DATABASE_DB', '')
 app.config['MYSQL_DATABASE_HOST'] = getenv('MYSQL_DATABASE_HOST', '')
 
-# app._static_folder = static
 mysql.init_app(app)
 
 @app.route('/')
@@ -43,7 +43,7 @@ def post_singup():
                     if(len(result) > 0):
                         return json.dumps({'error':'Email já cadastrado'})
                     
-                    hash_password = generate_password_hash(password)
+                    hash_password = password #generate_password_hash(password)
                     cursor.execute('insert into tbl_user (user_name, user_email, user_password) values (%s, %s, %s)', (name, email, hash_password))
                     result = cursor.fetchall()
 
