@@ -3,6 +3,8 @@ import pandas as pd
 
 lista_pesquisa = ['informações', 'Négocios']
 
+jose, maria, pedro = "jose", "maria", "pedro"
+
 texto = 'Existem muitos desafios para o Big Data. O primeiro deles é a coleta dos dados, pois fala-se aqui de '\
         'enormes quantidades sendo geradas em uma taxa maior do um servidor comum seria capaz de processar e armazenar. '\
         'O segundo desafio é justamente o de processar essas informações. Como elas estão distribuidas, a aplicação deve ser ' \
@@ -89,3 +91,6 @@ list_padrao = [
 ]
 
 encontrar_padrao(list_padrao, frase)
+
+pd.DataFrame([1,2,3,4,5,6]).describe()
+
